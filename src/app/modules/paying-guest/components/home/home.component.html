@@ -1,0 +1,29 @@
+<div class="home-container">
+  <div class="home-header">
+    <div>
+      <div class="home-header-text">
+        <h1>Pg Inn is affordable...</h1>
+        <h4>Select your city</h4>
+      </div>
+      <div ngClass="cities-container">
+        <button
+          mat-raised-button
+          (click)="getPgByCity(city)"
+          color="primary"
+          *ngFor="let city of cities"
+        >
+          {{ city | titlecase }}
+        </button>
+      </div>
+      <h1>Enjoy your stay</h1>
+    </div>
+    <img src="assets/images/home.jpg" ngClass="home-image" />
+  </div>
+</div>
+<div class="footer-container">
+  <img
+    src="assets/svg-icons/copy-right.svg"
+    [ngStyle]="{ 'height.px': 15, 'width.px': 15, 'margin.px': 2 }"
+  />
+  <p>All rights reserved to Pg Inn pvt Ltd</p>
+</div>
