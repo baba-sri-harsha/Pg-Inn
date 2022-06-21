@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Cities } from '../../models/cities';
+import { PgService } from '../../services/pg.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,15 @@ import { Cities } from '../../models/cities';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _pgService: PgService) {}
 
-  cities = Object.keys(Cities).filter((value) => isNaN(Number(value)));
+  cities!: string[];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._pgService.getDistinctCities().subscribe({
+      next: (data) => (this.cities = data),
+    });
+  }
 
   getPgByCity = (city: string) => {
     this._router.navigate(['pg-city/' + city]);

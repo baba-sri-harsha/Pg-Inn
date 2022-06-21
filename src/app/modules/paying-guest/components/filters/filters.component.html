@@ -1,0 +1,15 @@
+<div *ngFor="let data of pgColumns">
+  <button (click)="getSubFilters(data)">{{ data }}</button>
+
+  <button (click)="sort(data, subfilter)" *ngFor="let subfilter of subFilters">
+    {{ subfilter }}
+  </button>
+</div>
+
+<!-- <button (click)="getSubFilters(item)" *ngFor="let item of filters">
+  {{ item }}
+</button>
+
+<button (click)="" routerLink="pg-list" [queryParam]="{filter:[item] , subfilter:[subfilter]}" *ngFor="let subfilter of subFilters">
+  {{ subfilter }}
+</button> -->

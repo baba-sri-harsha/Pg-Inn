@@ -1,0 +1,19 @@
+<div class="pg-list-container">
+  <app-filters class="app-filter"></app-filters>
+
+  <div class="pg-card-conatiner">
+    <mat-card
+      *ngFor="let pg of pgList"
+      [ngClass]="pg.pgGender === 'FEMALE' ? 'female' : 'male'"
+    >
+      <mat-card-header>
+        <div mat-card-avatar>avatar</div>
+        <mat-card-title>{{ pg.name }}</mat-card-title>
+        <mat-card-subtitle>{{ pg.pgGender }}</mat-card-subtitle>
+      </mat-card-header>
+      <button [routerLink]="['/pg-details', pg.payingGuestId]">
+        view more
+      </button>
+    </mat-card>
+  </div>
+</div>

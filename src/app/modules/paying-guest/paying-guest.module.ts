@@ -2,12 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { MaterialModule } from 'src/app/shared/material/material.module';
 import { PayingGuestRoutingModule } from './paying-guest-routing.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { PayingGuestListComponent } from './components/paying-guest-list/paying-guest-list.component';
+import { PayingGuestDetailsComponent } from './components/paying-guest-details/paying-guest-details.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { PgSortedComponent } from './components/pg-sorted/pg-sorted.component';
 
 @NgModule({
-  declarations: [HomeComponent, NavBarComponent],
+  declarations: [
+    HomeComponent,
+    NavBarComponent,
+    PayingGuestListComponent,
+    PayingGuestDetailsComponent,
+    FiltersComponent,
+    PgSortedComponent,
+  ],
   imports: [CommonModule, MaterialModule, PayingGuestRoutingModule],
-  exports: [HomeComponent, NavBarComponent],
+  exports: [
+    HomeComponent,
+    NavBarComponent,
+    PayingGuestListComponent,
+    PayingGuestDetailsComponent,
+    FiltersComponent,
+  ],
 })
 export class PayingGuestModule {}
