@@ -1,15 +1,24 @@
 <div *ngFor="let data of pgColumns">
-  <button (click)="getSubFilters(data)">{{ data }}</button>
-
-  <button (click)="sort(data, subfilter)" *ngFor="let subfilter of subFilters">
-    {{ subfilter }}
+  <button
+    (click)="getSubFilters(data)"
+    mat-flat-button
+    [matMenuTriggerFor]="sub"
+    [matMenuTriggerData]="{ label: data }"
+  >
+    {{ data }}
   </button>
 </div>
-
-<!-- <button (click)="getSubFilters(item)" *ngFor="let item of filters">
-  {{ item }}
-</button>
-
-<button (click)="" routerLink="pg-list" [queryParam]="{filter:[item] , subfilter:[subfilter]}" *ngFor="let subfilter of subFilters">
+<!-- <div (click)="sort(data, subfilter)" *ngFor="let subfilter of subFilters">
   {{ subfilter }}
-</button> -->
+</div> -->
+<mat-menu #sub="matMenu">
+  <ng-template let-label="label" matMenuContent>
+    <button
+      mat-menu-item
+      *ngFor="let subFilter of subFilters"
+      (click)="sort(label, subFilter)"
+    >
+      {{ subFilter }}
+    </button>
+  </ng-template>
+</mat-menu>

@@ -11,6 +11,7 @@ import { PgService } from '../../services/pg.service';
 })
 export class FiltersComponent implements OnInit {
   pgColumns: string[] = [];
+
   payingGuest: PayingGuest = {
     payingGuestId: 0,
     name: '',
