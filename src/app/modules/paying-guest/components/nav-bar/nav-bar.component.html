@@ -1,16 +1,19 @@
 <mat-toolbar color="primary">
   <div class="container">
-    <div class="home">
+    <div class="home" routerLink="">
       <img
         [ngStyle]="{ 'height.px': 60, 'width.px': 60, 'margin.px': 15 }"
         src="assets/svg-icons/bunk-hostel-svgrepo-com (1).svg"
       />
       <h1>Pg Inn</h1>
     </div>
+
     <div>
-      <button mat-raised-button>Login</button>
-      <button mat-raised-button color="primary">Register</button>
+      <button mat-raised-button routerLink="login">Login</button>
+      <button mat-raised-button routerLink="register" color="primary">
+        Register
+      </button>
     </div>
   </div>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

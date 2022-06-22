@@ -1,5 +1,21 @@
 <div class="pg-list-container">
-  <app-filters class="app-filter"></app-filters>
+  <mat-sidenav-container>
+     
+    <mat-sidenav class="sidenav" #sidenav opened="true" mode="side">
+         
+      <mat-nav-list>
+              <app-filters class="app-filter"></app-filters>
+
+           
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+         
+      <div style="height: 88vh">      <router-outlet></router-outlet>    </div>
+       
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
   <div class="pg-card-conatiner">
     <mat-card

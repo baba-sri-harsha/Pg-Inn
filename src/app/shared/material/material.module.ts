@@ -8,38 +8,35 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+let material = [
+  MatToolbarModule,
+  MatCardModule,
+  MatButtonModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatToolbarModule,
+  MatTabsModule,
+  MatSelectModule,
+  MatListModule,
+  MatMenuModule,
+  MatDialogModule,
+  FormsModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatSelectModule,
-    MatListModule,
-    MatMenuModule,
-  ],
+  imports: [CommonModule, ...material],
 
-  exports: [
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatSelectModule,
-    MatMenuModule,
-  ],
+  exports: [...material],
 })
 export class MaterialModule {}

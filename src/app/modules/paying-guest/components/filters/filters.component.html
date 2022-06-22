@@ -1,5 +1,6 @@
-<div *ngFor="let data of pgColumns">
+<div class="container" *ngFor="let data of pgColumns">
   <button
+    class="cont"
     (click)="getSubFilters(data)"
     mat-flat-button
     [matMenuTriggerFor]="sub"

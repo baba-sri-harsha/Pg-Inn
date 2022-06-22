@@ -1,3 +1,6 @@
+import { RegisterComponent } from './../auth/components/register/register.component';
+import { AuthGuardService } from './../auth/services/auth-guard.service';
+import { BookingComponent } from './../booking/components/booking/booking.component';
 import { PayingGuestDetailsComponent } from './components/paying-guest-details/paying-guest-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,10 +10,16 @@ import { PgService } from './services/pg.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'pg-city/:city', component: PayingGuestListComponent },
   { path: 'pg-details', component: PayingGuestListComponent },
   { path: 'pg-list', component: PayingGuestListComponent },
-
+  {
+    path: 'booking',
+    component: BookingComponent,
+    canActivate: [AuthGuardService],
+  },
+  { path: 'register', component: RegisterComponent },
   { path: 'pg-details/:id', component: PayingGuestDetailsComponent },
 ];
 

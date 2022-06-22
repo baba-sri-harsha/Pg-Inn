@@ -7,7 +7,6 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { PayingGuestListComponent } from './components/paying-guest-list/paying-guest-list.component';
 import { PayingGuestDetailsComponent } from './components/paying-guest-details/paying-guest-details.component';
 import { FiltersComponent } from './components/filters/filters.component';
-import { PgSortedComponent } from './components/pg-sorted/pg-sorted.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { PgSortedComponent } from './components/pg-sorted/pg-sorted.component';
     PayingGuestListComponent,
     PayingGuestDetailsComponent,
     FiltersComponent,
-    PgSortedComponent,
   ],
   imports: [CommonModule, MaterialModule, PayingGuestRoutingModule],
   exports: [
