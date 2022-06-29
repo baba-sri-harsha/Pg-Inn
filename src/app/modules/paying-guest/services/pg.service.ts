@@ -1,7 +1,7 @@
 import { PayingGuest } from './../models/paying-guest';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,8 @@ export class PgService {
     return this._httpClient.get<string[]>(this._baseUrl + 'distinct-city');
   };
 
-  getPgByCities = (city: string): Observable<PayingGuest[]> => {
+  getPgByCities = (city: string | null): Observable<PayingGuest[]> => {
+    if (!city) return of([]);
     return this._httpClient.get<PayingGuest[]>(
       this._baseUrl.concat('city/', city)
     );

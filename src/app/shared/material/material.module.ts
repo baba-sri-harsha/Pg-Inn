@@ -14,6 +14,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 let material = [
   MatToolbarModule,
@@ -31,6 +33,8 @@ let material = [
   FormsModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({

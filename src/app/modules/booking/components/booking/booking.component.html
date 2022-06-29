@@ -1,1 +1,22 @@
-<p>booking works!</p>
+<form [formGroup]="bookingForm" (ngSubmit)="sumbitForm(bookingForm)">
+  <mat-form-field appearance="fill">
+    <mat-label>Check in</mat-label>
+    <input matInput formControlName="fromDate" type="date" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Check out</mat-label>
+    <input matInput formControlName="toDate" type="date" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select formControlName="roomShare">
+      <mat-option value="ONE">One Share</mat-option>
+      <mat-option value="TWO">Two Share</mat-option>
+      <mat-option value="THREE">Three Share</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Book</button>
+</form>

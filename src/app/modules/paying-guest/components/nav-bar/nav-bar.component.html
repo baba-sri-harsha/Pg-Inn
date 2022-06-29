@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-  <div class="container">
-    <div class="home" routerLink="">
+  <div class="container" routerLink="home">
+    <div class="home">
       <img
         [ngStyle]="{ 'height.px': 60, 'width.px': 60, 'margin.px': 15 }"
         src="assets/svg-icons/bunk-hostel-svgrepo-com (1).svg"
@@ -9,7 +9,12 @@
     </div>
 
     <div>
-      <button mat-raised-button routerLink="login">Login</button>
+      <button *ngIf="!loggedIn" mat-raised-button routerLink="login">
+        Login
+      </button>
+      <button *ngIf="loggedIn" (click)="onClickLogout()" mat-raised-button>
+        Logout
+      </button>
       <button mat-raised-button routerLink="register" color="primary">
         Register
       </button>

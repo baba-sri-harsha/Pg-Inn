@@ -1,4 +1,28 @@
-<p>{{ payingGuest | json }}</p>
-<button mat-raised-button color="primary" [routerLink]="['/booking']">
-  Book Pg
-</button>
+<mat-card class="example-card" *ngIf="payingGuest">
+  <mat-card-subtitle>{{ payingGuest.name }}</mat-card-subtitle>
+  <mat-card-title>{{ payingGuest.name | titlecase }}</mat-card-title>
+  <mat-card-content>
+    <div>
+      <h3>Rooms :</h3>
+      <div *ngFor="let room of payingGuest.rooms">
+        <p>Roomshare : {{ room.roomShare }}</p>
+        <p>Room Type : {{ room.roomType }}</p>
+        <p>Price : {{ room.price }}</p>
+        <p>Available Beds : {{ room.availableBeds }}</p>
+        <p>********************************************</p>
+      </div>
+    </div>
+    <h3>Address :</h3>
+    <p>{{ payingGuest.address.doorNumber }}</p>
+    <p>{{ payingGuest.address.landMark }}</p>
+    <p>{{ payingGuest.address.city }}</p>
+    <p>{{ payingGuest.address.state }}</p>
+    <p>{{ payingGuest.address.doorNumber }}</p>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [routerLink]="['/booking']">
+      Book Pg
+    </button>
+  </mat-card-actions>
+</mat-card>

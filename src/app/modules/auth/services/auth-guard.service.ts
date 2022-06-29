@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import {
   Router,
   ActivatedRouteSnapshot,
@@ -22,8 +21,9 @@ export class AuthGuardService {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    if (this._loginService.isUserLoggedIn()) return true;
-    else {
+    if (this._loginService.isLogggedIn()) {
+      return true;
+    } else {
       alert('Please Login');
       this._router.navigate(['login'], {
         queryParams: { returnUrl: route.url },

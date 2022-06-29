@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PayingGuest } from '../../models/paying-guest';
 
 import { PgService } from '../../services/pg.service';
@@ -35,9 +35,14 @@ export class FiltersComponent implements OnInit {
 
   subFilters: string[] = [];
 
-  constructor(private _pgService: PgService, private _router: Router) {}
+  constructor(
+    private _pgService: PgService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    console.log(this._router.url);
     this.filters.forEach((filter) => {
       if (filter == 'pgGender' || filter == 'rating' || filter == 'category') {
         this.pgColumns.push(filter);
@@ -53,9 +58,9 @@ export class FiltersComponent implements OnInit {
     });
   };
 
-  sort = (data: string, subfilter: string) => {
-    this._router.navigate(['/pg-details'], {
-      queryParams: { data, subfilter },
+  sort = (filter: string, subfilter: string) => {
+    this._router.navigate([this._router.url], {
+      queryParams: { filter, subfilter },
     });
   };
 

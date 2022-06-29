@@ -1,3 +1,4 @@
+import { BookingModule } from './modules/booking/booking.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { PayingGuestModule } from './modules/paying-guest/paying-guest.module';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { MaterialModule } from './shared/material/material.module';
     MaterialModule,
     HttpClientModule,
     PayingGuestModule,
+    BookingModule,
     AppRoutingModule,
   ],
   providers: [],

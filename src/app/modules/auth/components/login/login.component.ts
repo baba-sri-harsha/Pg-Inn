@@ -25,29 +25,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onSubmit = (loginForm: NgForm) => {
+    this._loginService
+      .generateToken(loginForm.value.username, loginForm.value.password)
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          localStorage.setItem('token', data.jwtToken);
+          if (data && this.retUrl != '') this._router.navigate([this.retUrl]);
+          else this._router.navigate(['home']);
+        },
+      });
+  };
+
   // onSubmit = (loginForm: NgForm) => {
   //   let login = loginForm.value;
   //   console.log(login);
-  //   this._loginService.loginUser(login).subscribe({
+  //   this._loginService.loginUser(login.username, login.password).subscribe({
   //     next: (data) => {
-  //       let token = data;
-  //       if ((token = '')) this._router.navigate(['/home']);
-  //       else {
-  //         localStorage.setItem('token', token);
-  //       }
+  //       console.log(data);
+  //       if (data && this.retUrl != '') this._router.navigate([this.retUrl]);
+  //       else this._router.navigate(['home']);
   //     },
   //   });
   // };
-
-  onSubmit = (loginForm: NgForm) => {
-    let login = loginForm.value;
-    console.log(login);
-    this._loginService.loginUser(login.username, login.password).subscribe({
-      next: (data) => {
-        console.log(data);
-        if (data && this.retUrl != '') this._router.navigate([this.retUrl]);
-        else this._router.navigate(['booking']);
-      },
-    });
-  };
 }

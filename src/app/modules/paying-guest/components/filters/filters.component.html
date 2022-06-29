@@ -1,12 +1,12 @@
-<div class="container" *ngFor="let data of pgColumns">
+<div class="container" *ngFor="let columns of pgColumns">
   <button
     class="cont"
-    (click)="getSubFilters(data)"
+    (click)="getSubFilters(columns)"
     mat-flat-button
     [matMenuTriggerFor]="sub"
-    [matMenuTriggerData]="{ label: data }"
+    [matMenuTriggerData]="{ label: columns }"
   >
-    {{ data }}
+    {{ columns }}
   </button>
 </div>
 <!-- <div (click)="sort(data, subfilter)" *ngFor="let subfilter of subFilters">

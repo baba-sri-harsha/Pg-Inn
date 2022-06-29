@@ -1,3 +1,5 @@
+import { BookingModule } from './../booking/booking.module';
+import { BookingComponent } from './../booking/components/booking/booking.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
@@ -16,6 +18,7 @@ import { FiltersComponent } from './components/filters/filters.component';
     PayingGuestDetailsComponent,
     FiltersComponent,
   ],
+
   imports: [CommonModule, MaterialModule, PayingGuestRoutingModule],
   exports: [
     HomeComponent,
